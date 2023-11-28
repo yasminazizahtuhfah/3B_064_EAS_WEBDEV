@@ -10,25 +10,25 @@
 
         <!-- FORM PENCARIAN -->
         <div class="pb-3">
-            <form class="d-flex" action="{{ url('kasir') }}" method="get">
+            <form class="d-flex" action="{{ route('tenan.index') }}" method="get">
                 <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" placeholder="Masukkan kata kunci" aria-label="Search">
                 <button class="btn btn-secondary" type="submit">Cari</button>
             </form>
         </div>
-        
+
         <!-- TOMBOL TAMBAH DATA -->
         <div class="pb-3">
-            <a href='{{ url("kasir/create") }}' class="btn btn-primary">+ Tambah Data</a>
+            <a href="{{ route('tenan.create') }}" class="btn btn-primary">+ Tambah Data</a>
         </div>
-        
+
         <!-- TABEL DATA -->
         <div class="table-responsive">
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th>Kode Kasir</th>
-                        <th>Nama Kasir</th>
-                        <th>Nomor HP</th>
+                        <th>Kode Tenan</th>
+                        <th>Nama Tenan</th>
+                        <th>HP</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -36,14 +36,14 @@
                     @foreach ($data as $item)
                         <tr>
                             <td>
-                                <a href="{{ url('kasir/'.$item->KodeKasir) }}">
-                                    {{ $item->KodeKasir }}
+                                <a href="{{ route('tenan.edit', $item->KodeTenan) }}">
+                                    {{ $item->KodeTenan }}
                                 </a>
                             </td>
-                            <td>{{ $item->Nama }}</td>
+                            <td>{{ $item->NamaTenan }}</td>
                             <td>{{ $item->HP }}</td>
                             <td>
-                                <a href='{{ url("kasir/{$item->KodeKasir}/edit") }}' class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{ route('tenan.edit', $item->KodeTenan) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form onsubmit="return confirm('Yakin akan menghapus data?')" class='d-inline' action="{{ url('kasir/'.$item->KodeKasir) }}" method="post">
                                     @csrf 
                                     @method('DELETE')
