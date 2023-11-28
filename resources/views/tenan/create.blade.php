@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('konten')
-    <form action='{{ url("kasir/{$data->KodeKasir}") }}' method='post' enctype="multipart/form-data">
+    <form action='{{ url('tenan') }}' method='post'>
         @csrf
         @if($errors->any())
             <div class="alert alert-danger">
@@ -12,25 +12,24 @@
                 </ul>
             </div>
         @endif
-        @method('PUT')
         <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <a href='{{ url("kasir") }}' class="btn btn-secondary"><< Kembali</a>
+            <a href='{{ url("tenan") }}' class="btn btn-secondary"><< Kembali</a>
             <div class="mb-3 row">
-                <label for="KodeKasir" class="col-sm-2 col-form-label">Kode Kasir</label>
+                <label for="KodeTenan" class="col-sm-2 col-form-label">Kode Tenan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='KodeKasir' value="{{ old('KodeKasir', $data->KodeKasir) }}" id="KodeKasir" readonly>
+                    <input type="text" class="form-control" name='KodeTenan' value="{{ Session::get('KodeTenan') }}" id="KodeTenan">
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="Nama" class="col-sm-2 col-form-label">Nama Kasir</label>
+                <label for="NamaTenan" class="col-sm-2 col-form-label">Nama Tenan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='Nama' value="{{ old('Nama', $data->Nama) }}" id="Nama">
+                    <input type="text" class="form-control" name='NamaTenan' value="{{ Session::get('NamaTenan') }}" id="NamaTenan">
                 </div>
             </div>
             <div class="mb-3 row">
                 <label for="HP" class="col-sm-2 col-form-label">Nomor HP</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='HP' value="{{ old('HP', $data->HP) }}" id="HP">
+                    <input type="text" class="form-control" name='HP' value="{{ Session::get('HP') }}" id="HP">
                 </div>
             </div>
             <div class="mb-3 row">

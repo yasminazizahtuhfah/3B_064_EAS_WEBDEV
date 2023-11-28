@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('konten')
-    <form action='{{ url('barang') }}' method='post'>
+    <form action='{{ url('kasir') }}' method='post'>
         @csrf
         @if($errors->any())
             <div class="alert alert-danger">
@@ -13,35 +13,23 @@
             </div>
         @endif
         <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <a href='{{ url("barang") }}' class="btn btn-secondary"><< Kembali</a>
+            <a href='{{ url("kasir") }}' class="btn btn-secondary"><< Kembali</a>
             <div class="mb-3 row">
-                <label for="KodeBarang" class="col-sm-2 col-form-label">Kode Barang</label>
+                <label for="KodeKasir" class="col-sm-2 col-form-label">Kode Kasir</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='KodeBarang' value="{{ Session::get('KodeBarang') }}" id="KodeBarang">
+                    <input type="text" class="form-control" name='KodeKasir' value="{{ old('KodeKasir') }}" id="KodeKasir">
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="NamaBarang" class="col-sm-2 col-form-label">Nama Barang</label>
+                <label for="Nama" class="col-sm-2 col-form-label">Nama Kasir</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='NamaBarang' value="{{ Session::get('NamaBarang') }}" id="NamaBarang">
+                    <input type="text" class="form-control" name='Nama' value="{{ old('Nama') }}" id="Nama">
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="Satuan" class="col-sm-2 col-form-label">Satuan</label>
+                <label for="HP" class="col-sm-2 col-form-label">Nomor HP</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='Satuan' value="{{ Session::get('Satuan') }}" id="Satuan">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="HargaSatuan" class="col-sm-2 col-form-label">Harga Satuan</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name='HargaSatuan' value="{{ Session::get('HargaSatuan') }}" id="HargaSatuan">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="Stok" class="col-sm-2 col-form-label">Stok</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name='Stok' value="{{ old('Stok') }}" id="Stok">
+                    <input type="text" class="form-control" name='HP' value="{{ old('HP') }}" id="HP">
                 </div>
             </div>
             <div class="mb-3 row">
